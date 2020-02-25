@@ -1,0 +1,50 @@
+
+.header_ {
+  position: relative;
+  height: 200px;
+  background-image: url("src/assets/img/bg.jpg");
+  border-radius: 0px 0px 70%; 
+}
+
+.header_1 {
+  position: relative;
+  top: 290px;
+  height: 200px;
+  background-image: url("src/assets/img/bg.jpg");
+  border-radius: 0px 0px 0px 0px; 
+}
+
+.header_0 {
+  position: relative;
+  top: 30px;
+  height: 200px;
+  background-color: #f4f5f8;
+  border-radius: 0px 0px 70%; 
+}
+
+.blocos {
+  position: absolute;
+  top: 250px;
+  z-index: 2;
+}
+
+.card {
+  padding: 25px;
+  height: 150px;
+  background-color: #5f1ecfb9;
+  border-radius: 10px;
+  align-items: center;
+  box-shadow:0 5px 0 #2e0870b9;;
+}
+
+.card:hover{
+  background:#5f1ecfb9;
+  box-shadow:0 5px 0 #2e0870b9;
+}
+
+.card:active {
+  position:relative;
+  top:5px;
+  box-shadow:none;
+}
+

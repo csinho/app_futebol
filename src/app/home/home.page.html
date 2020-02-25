@@ -1,0 +1,21 @@
+<ion-content color="light">
+  <div class="header_">
+  </div>
+  <div class="header_1">
+  </div>
+  <div class="header_0">
+  </div>
+  <div class="blocos">
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="6" *ngFor="let item of listas" [routerLink]="item.link">
+          <ion-card class="card">
+            <ion-img src="assets/img/icons/{{item.icon}}.png" width="30" height="30"></ion-img>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  
+
+</ion-content>

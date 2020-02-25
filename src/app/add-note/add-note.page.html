@@ -1,0 +1,19 @@
+<ion-content color="light">
+  <div class="header_">
+    <ion-buttons style="color: #FFF;" slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+      <ion-title *ngIf="title">
+        <span style="color: #FFF; font-size: 20px;">{{title}}</span>
+      </ion-title>
+    </ion-buttons>
+  </div>
+  <ion-list class="list_add">
+    <ion-item>
+      <ion-input placeholder="Digite o nome" [(ngModel)]="note.title"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input placeholder="Diga-me um apelido" [(ngModel)]="note.content"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-button class="list_add" color="primary" expand="full" (click)="addNote()">Create</ion-button>
+</ion-content>

@@ -1,0 +1,31 @@
+<ion-content color="light">
+  <div class="header_">
+    <ion-buttons style="color: #FFF;" slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+      <ion-title *ngIf="title">
+        <span style="color: #FFF; font-size: 20px;">{{title}}</span>
+      </ion-title>
+    </ion-buttons>      
+  </div>
+  <ion-list class="list_card">
+    <ion-list-header>
+      <ion-label>Todos Jogadores</ion-label>
+    </ion-list-header>
+    <br/>
+    <ion-item *ngFor="let note of (notes | async)" no-lines>
+      <ion-avatar slot="start">
+        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAAAAAAALAAAAAABAAEAAAICTAEAOw==">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{note.title}}</h2>
+        <p>{{note.content}}</p>
+      </ion-label>
+      <ion-button fill="outline" slot="end" [routerLink]="'/view-note/'+note.id">Ver perfil</ion-button>
+    </ion-item>
+  </ion-list>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button [routerLink]="'/add-note'">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
