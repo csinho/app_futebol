@@ -3,14 +3,27 @@ export interface Note {
     title: string; // nome
     content: string; //descrição
     createdAt: any; //data de criação
-    image: any;
-    status_jogador: any;
-    meses: {
-        mes: {
-            nome: any,
-            valor: any,
-            status: boolean,            
-        }
+    image: {
+        name: string,
+        filepath: string,
+        size: number
     };
-    
+    status_jogador: Number;
+    meses: {};    
+}
+
+
+
+export interface IMAGE {
+    id?: any;
+    title: string; // nome
+    content: string; //descrição
+    createdAt: any; //data de criação
+    image: {
+        name: string;
+        filepath: string;
+        size: number;
+    };
+    status_jogador: Number;
+    meses: {}; 
 }

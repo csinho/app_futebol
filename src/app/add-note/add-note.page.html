@@ -7,13 +7,76 @@
       </ion-title>
     </ion-buttons>
   </div>
-  <ion-list class="list_add">
-    <ion-item>
-      <ion-input placeholder="Digite o nome" [(ngModel)]="note.title"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input placeholder="Diga-me um apelido" [(ngModel)]="note.content"></ion-input>
-    </ion-item>
-  </ion-list>
-  <ion-button class="list_add" color="primary" expand="full" (click)="addNote()">Create</ion-button>
+
+  <div class="header_image">
+    <div *ngIf="!UploadedFileURL">
+      <ion-avatar>
+        <img src="assets/img/icons/football-player.png">
+      </ion-avatar>
+      <input class="input" type="file" (change)="uploadFile($event.target.files)" />
+    </div>
+
+    <div *ngIf="UploadedFileURL | async as url">
+      <ion-avatar>
+        <img [src]="url">
+      </ion-avatar>
+      <input class="input" type="file" (change)="uploadFile($event.target.files)" />
+    </div>
+  </div>
+
+
+
+  <form [formGroup]="registrationForm" (ngSubmit)="submit()">
+    <ion-list>
+      <ion-item no-lines>
+        <ion-label position="floating">Nome</ion-label>
+        <ion-input formControlName="nome" autocapitalize inputmode="text"></ion-input>
+      </ion-item>
+      <div *ngFor="let error of errorMessages.nome">
+        <ng-container *ngIf="nome.hasError(error.type) && (nome.dirty || nome.touched)">
+          <small class="error-message">{{error.message}}</small>
+        </ng-container>
+      </div>
+
+      <ion-item no-lines>
+        <ion-label position="floating">Apelido</ion-label>
+        <ion-input formControlName="apelido" autocapitalize inputmode="text"></ion-input>
+      </ion-item>
+      <div *ngFor="let error of errorMessages.apelido">
+        <ng-container *ngIf="apelido.hasError(error.type) && (apelido.dirty || apelido.touched)">
+          <small class="error-message">{{error.message}}</small>
+        </ng-container>
+      </div>
+
+      <ion-button [disabled]="!registrationForm.valid" type="submit" expanded="bloco">Salvar</ion-button>
+
+    </ion-list>
+  </form>
+
+  <ion-card  *ngIf="isUploading && !isUploaded">
+    <ion-card-content>
+      <div *ngIf="percentage | async as pct">
+        Progresso: {{ pct | number }}%
+        <ion-progress-bar value="{{ pct / 100 }}"></ion-progress-bar>
+      </div>
+      <div *ngIf="snapshot | async as snap">
+        Tamanho do arquivo: {{ snap.totalBytes | fileSizePipe }} Transferido:
+        {{ snap.bytesTransferred | fileSizePipe }}
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Retornar apenas na tela de listagem dos jogadores e PERFIL -->
+
+  <!--
+  <ion-card color="light" *ngFor="let item of images | async">
+    <ion-card-header>
+      <ion-card-title>
+        {{ item.name }}
+      </ion-card-title>
+    </ion-card-header> 
+
+  </ion-card>-->
+
+
 </ion-content>

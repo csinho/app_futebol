@@ -13,7 +13,10 @@ export class UpdateNotePage implements OnInit, AfterViewInit {
     id: '',
     title: '',
     content: '',
-    createdAt: ''
+    createdAt: '',
+    image: '',
+      status_jogador: 0,
+      meses: {}
   };
 
   constructor(private activatedRoute: ActivatedRoute, private fbService: FirebaseService, private router: Router) {

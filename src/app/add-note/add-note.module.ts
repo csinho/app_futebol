@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
+
 import { AddNotePageRoutingModule } from './add-note-routing.module';
+import { FileSizeFormatPipe } from '../file-size-format.pipe';
 
 import { AddNotePage } from './add-note.page';
 
@@ -12,9 +14,10 @@ import { AddNotePage } from './add-note.page';
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     IonicModule,
     AddNotePageRoutingModule
   ],
-  declarations: [AddNotePage]
+  declarations: [AddNotePage,FileSizeFormatPipe]
 })
 export class AddNotePageModule {}
